@@ -1,0 +1,490 @@
+По поиску работы:
+https://leetcode.com/	Задач 200 прорешал, повторил все основные типы заданий. Очень потогают подборки. Топ 150 интервью, топ 75 leetcode
+Там люди сливают свою зп и отзывы о компании: https://www.glassdoor.com/index.htm
+А вот тут хорошо смотреть, соколь ты будешь тратить в стране: https://www.numbeo.com/cost-of-living/in/Budapest
+----------
+В мета фесбук всего 3 этапа. И я так и не понял, что на третьем, потому что не дошёл.
+Фейсбук:
+Созвон на полчаса понять, вменяймый ли я
+Созвон на час, 40 мин очень интенсивного программирования, 20 минут расспросов об опыте. Задачи были не очень сложные, но я к ним готовился заранее
+Программирование без IDE и нужно все объяснять в процессе
+-----------
+В DataSnipper этапов было дохера
+- созвон с HR поболтать
+- созвон с менеджером команды поболтать
+- созвон на 2 часа программировать (и да, это было чуть ли не сложнее чем в мете)
+- созвон с директором по разработке поболтать
+- созвон с CEO! И все хотят поболтать
+-----------
+Алгоритмы очень важны в программировании, кому интересно почитайте книгу "Грокаем алгоритмы" Адитья Бхаргава - очень простая и интересная книга!
+--------
+списки – изменяемые коллекции элементов, индексируемые;
+строки – неизменяемые коллекции символов, индексируемые;
+кортежи – неизменяемые коллекции элементов, индексируемые;
+множества – изменяемые коллекции уникальных элементов, неиндексируемые.
+словари – изменяемые коллекции элементов с произвольными индексами – ключами.
+--------
+digits = '0123456789'
+lowercase_letters = 'abcdefghijklmnopqrstuvwxyz'
+uppercase_letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+punctuation = '!#$%&*+-=?@^_'
+---------------
+Алгоритм получения цифр nn-значного числа
+Несложно понять, по какому алгоритму можно найти каждую цифру nn-значного числа num:
+    Последняя цифра: (num % 101) // 100;
+    Предпоследняя цифра: (num % 102) // 101;
+    Предпредпоследняя цифра: (num % 103) // 102;
+    .....
+    Вторая цифра: (num % 10n-1) // 10n-2;
+    Первая цифра: (num % 10n) // 10n-1.
+пример из трехзначного числа:
+num = int(input())
+digit3 = num % 10
+digit2 = (num // 10) % 10
+digit1 = num // 100
+print(digit1, digit2, digit3, sep=',')
+---------------
+Положительные индексы 	0 	1 	2 	3 	4 	5
+Строка 					P 	y 	t 	h 	o 	n
+Отрицательные индексы 	-6 	-5 	-4 	-3 	-2 	-1
+Удалить из строки последний символ можно при помощи среза s[:-1].
+Если в качестве шага среза указать отрицательное число (s[::-1]), то символы будут идти в обратном порядке.
+-------Методы строк (I,9)-------
+Конвертация регистра	capitalize(), swapcase(), title(), lower(), upper()
+Поиск и замена	count(), startswith(), endswith(), find(), rfind(), index(), rindex(), strip(), lstrip(), rstrip(), replace()
+Классификация символов	isalnum(), isalpha(), isdigit(), islower(), isupper(), isspace()
+Разбивка и сборка	split() и join() 	(exp. s = ' '.join(words))
+format():
+text = 'My name is {}, I was born in {}, I work as a {}.'.format(name, birth_year, profession)
+text = 'My name is {0}, I was born in {1}, I work as a {2}.'.format(name, birth_year, profession)
+text2 = '{1} is my city and {0} is my name!'.format(name, city)		>>		Moscow is my city and Timur is my name!
+
+text = f'{first_name} {last_name} is a very famous singer from the {country}. She was born on {birth_date} in {birth_place}.'
+print(f'5 + 2 = {5 + 2}')
+-------Функции строк (I,9)-------
+len(), ord(), chr()
+-------Списки (I.11)---------
+Функции:	list(), len(), sum(), min(), max()
+Методы:		append(), extend() ,insert() ,index() ,remove() ,pop() ,reverse() ,count() ,clear() ,copy() ,sort()
+Операторы:	2 in numbers, 0 not in numbers, del numbers[2:7]
+Распаковка 	print(*numbers, sep='\n')
+---------------------------------
+вывести среднее во велечине посередине
+print(max, a + b + c - min - max, min, sep = '\n')
+---------------
+найти самое короткое и самое длинное
+a, b, c = input(), input(), input()
+if len(a) < len(b): 
+    b, a = a, b
+if len(b) < len(c): 
+    c, b = b, c
+if len(a) < len(b): 
+    b, a = a, b
+print("min:", c, "max:", a)
+------------
+if not (0 <= int(el) <= 255):
+---------------
+if len(s) == 1 and s in 'aeiou':
+    print('YES')
+----------
+import math
+num1 = math.sqrt(2)     # вычисление квадратного корня из двух
+num2 = math.ceil(3.8)   # округление числа вверх
+num3 = math.floor(3.8)  # округление числа вниз
+------
+from math import *
+from math import sqrt, ceil
+num1 = sqrt(2)     # вычисление корня квадратного из двух
+------------
+for i in range(m, n + 1) or range(m, n - 1, -1):
+----------------
+text = input()
+total = 0
+while text != 'stop':
+    num = int(text)
+    total += num
+    text = input()
+print('Сумма чисел равна', total)
+-------------
+num = int(input())
+flag = True
+
+for i in range(2, num):
+    if num % i == 0:        #  если исходное число делится на какое-либо отличное от 1 и самого себя
+        flag = False
+        break               # останавливаем цикл если встретили делитель числа        
+
+if flag:  # эквивалентно if flag == True:
+    print('Число простое')
+else:
+    print('Число составное')
+---найти простые числа в отрезке---------
+for i in range(a, b + 1):
+    if i == 1:
+        continue
+    for j in range (2, i // 2 + 1):
+        if i % j == 0:
+            break
+    else:
+        print(i)
+------------число с максимальной суммой делителей и сумму его делителей-----------
+a, b = int(input()), int(input())
+max = a
+sum = 0
+for i in range(a, b + 1):
+    sum_curr = 0
+    for j in range(2, i + 1):
+        if i % j == 0:
+            sum_curr += j
+    if sum_curr + 1 >= sum:
+        sum = sum_curr + 1
+        max = i
+print(max, sum)
+-----------
+s = 'abcdef'
+for i in range(len(s)):
+    print(s[i])
+
+for c in s:
+    print(c)
+----------
+for i in range(26):
+    print(chr(ord('A') + i))
+----------
+txt = 'My name is {0}, I am {1}, I work as a {2}'.format(name, age, profession)
+print('Hello, {0} {1}. You are {2}. You are a {3}. You were a member of {4}'.format(first_name, last_name, age, profession, affiliation))
+print(f'Hello, {first_name} {last_name}. You are {age}. You are a {profession}. You were a member of {affiliation}')   # подставятся соответствующие переменные
+---------
+numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+print(*numbers, sep='\n')
+--------
+if s.lower().find(search_query.lower()) >= 0:
+if search_query.lower() in s.lower():
+----------
+words = s.split('.')
+words = input().split()
+s = ' '.join(words)
+--------
+names = ['Gvido', 'Roman' , 'Timur']
+if 'Anders' in names:
+    position = names.index('Anders')
+    print(position)
+else:
+    print('Такого значения нет в списке')
+--------------
+numbers = [8, 9, 10, 11]
+numbers[1] = 17
+numbers.insert(len(numbers), 4)
+numbers.append(5)
+numbers.extend([6])
+numbers.remove(numbers[0])
+del numbers[0]
+numbers *= 2
+numbers.insert(3, 25)
+print(numbers)
+--------
+seq = []
+for el in input().split():
+    seq.append(int(el))
+--------списочное выражение------------
+lines = [input() for _ in range(int(input()))]
+evens = [i for i in range(21) if i % 2 == 0]
+numbers = [i * j for i in range(1, 5) for j in range(2)]
+numbers = [int(c) for c in input().split()]
+---------random I.15, II.12--------
+Функция randint() принимает два обязательных аргумента a и b (включительно) и возвращает псевдослучайное целое число из отрезка [a; b][a;b].	# num1 = random.randint(0, 17)
+randrange()	возвращает случайно выбранное число из последовательности чисел. Синтаксис аргументов как у range().	#num = random.randrange(0, 101, 10)
+функция random() возвращает псевдослучайное число с плавающей точкой (вещественное число) от 0 до 1.	# num = random.random()
+Функция uniform() тоже возвращает случайное число с плавающей точкой, но при этом она позволяет задавать диапазон для отбора значений.		#num = random.uniform(1.5, 17.3)
+seed() для  генерации одной и той же последовательности случайных чисел:
+	random.seed(17)   # явно устанавливаем начальное значение для генератора случайных чисел
+	for _ in range(10):
+		print(random.randint(1, 100))
+
+Метод shuffle() принимает список в качестве обязательного аргумента и перемешивает его случайным образом.	random.shuffle(numbers)    # numbers = [1, 2, 3, 4, 5, 6, 7, 8]
+Метод sample() принимает два аргумента: первый – коллекция (последовательность), которая поддерживает индексацию (список, строка, кортеж), второй – количество случайных элементов. Возвращает список из указанного количества уникальных (имеющих разные индексы) случайных элементов.	print(random.sample(numbers, 3))
+Метод choice() принимает список (строку, кортеж) в качестве обязательного аргумента и возвращает один случайный элемент.	print(random.choice('BEEGEEK'))
+-----------
+string содержит константные строки, которые можно использовать при решении задач
+print(string.ascii_letters)		#abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ
+print(string.ascii_uppercase)	#ABCDEFGHIJKLMNOPQRSTUVWXYZ
+print(string.ascii_lowercase)	#abcdefghijklmnopqrstuvwxyz
+print(string.digits)	#0123456789
+print(string.hexdigits)	#0123456789abcdefABCDEF
+print(string.octdigits)	#01234567
+print(string.punctuation)	#!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~
+print(string.printable)	#0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~ \t\n\r\x0b\x0c
+----------методы для обработки строк в Python:------------
+• count(str): возвращает найденное количество
+• isalpha(str): если строка в Python включает в себя лишь алфавитные символы, возвращается True;
+• islower(str): True возвращается, если строка включает лишь символы в нижнем регистре;
+• isupper(str): True, если символы строки в Python находятся в верхнем регистре;
+• startswith(str): True, когда строка начинается с подстроки str;
+• isdigit(str): True, когда каждый символ строки — цифра;
+• endswith(str): True, когда строка в Python заканчивается на подстроку str;
+• upper(): строка переводится в верхний регистр;
+• lower(): строка переводится в нижний регистр;
+• title(): для перевода начальных символов всех слов в строке в верхний регистр;
+• capitalize(): для перевода первой буквы самого первого слова строки в верхний регистр;
+• lstrip(): из строки в Python удаляются начальные пробелы; 
+• rstrip(): из строки в Python удаляются конечные пробелы;
+• strip(): из строки в Python удаляются и начальные, и конечные пробелы или переданные символы;   str_lst = [word.strip('.,!?:;-') for word in input().lower().split()]
+• rjust(width): когда длина строки меньше, чем параметр width, слева добавляются пробелы, строка выравнивается по правому краю;
+• ljust(width): когда длина строки в Python меньше, чем параметр width, справа от неё добавляются пробелы для дополнения значения width, при этом происходит выравнивание строки по левому краю;
+• find(str[, start [, end]): происходит возвращение индекса подстроки в строку в Python. В том случае, если подстрока не найдена, выполняется возвращение числа -1;
+• index() возвращает индекс первого элемента, значение которого равняется переданному в метод значению;
+• center(width): когда длина строки в Python меньше, чем параметр width, слева и справа добавляются пробелы (равномерно) для дополнения значения width, причём происходит выравнивание строки по центру;
+• split([delimeter[, num]]): строку в Python разбиваем на подстроки в зависимости от разделителя;
+• replace(old, new[, num]): в строке одна подстрока меняется на другую;
+• join(strs): строки объединяются в одну строку, между ними вставляется определённый разделитель.
+• partition(sep): разделяет строку при первом появлении sep и возвращает кортеж, состоящий из трех элементов: часть перед разделителем, сам разделитель и часть после разделителя. Если разделитель не найден, то кортеж содержит саму строку, за которой следуют две пустые строки.
+------------
+Списочные методы:
+    метод append() добавляет новый элемент в конец списка;
+    метод extend() расширяет один список другим списком;
+    метод insert() вставляет значение в список в заданной позиции;
+    метод index() возвращает индекс первого элемента, значение которого равняется переданному в метод значению;
+    метод remove() удаляет первый элемент, значение которого равняется переданному в метод значению;
+    метод pop() удаляет элемент по указанному индексу и возвращает его;
+    метод count() возвращает количество элементов в списке, значения которых равны переданному в метод значению;
+    метод reverse() инвертирует порядок следования значений в списке, то есть меняет его на противоположный;
+    метод copy() создает поверхностную копию списка.;
+    метод clear() удаляет все элементы из списка;
+    оператор del позволяет удалять элементы списка по определенному индексу.
+Методы строк, работающие со списками:
+    метод split() разбивает строку на слова, используя в качестве разделителя последовательность пробельных символов, символ табуляции (\t) или символ новой строки (\n).
+    метод join() собирает строку из элементов списка, используя в качестве разделителя строку, к которой применяется метод.
+-----------
+Кортежи
+tuple() - создать кортеж наподобие list() 
+Кортежи поддерживают те же операции, что и списки, за исключением изменяющих содержимое.
+sorted_tuple = tuple(sorted(not_sorted_tuple))  сортировка
+Упаковка кортежей	tuple1 = 1, 2, 3
+Распаковка кортежей. Распаковывать можно не только кортеж, правая сторона может быть любой последовательностью (кортеж, строка или список).
+a, b, c, d = colors
+a, b, _ = colors
+a, b, *tail = 1, 2, 3, 4, 5, 6
+*names, surname = ('Стефани', 'Джоанн', 'Анджелина', 'Джерманотта')
+-----------
+узнать тип объекта	type()
+------------------
+def is_even(num):
+    return num % 2 == 0
+-----------
+n, m = int(input()), int(input())    # считываем значения n и m
+my_list = [[0] * m for _ in range(n)]
+------------
+n = 4                                          # количество строк (элементов)
+my_list = []
+for _ in range(n):
+    elem = [int(i) for i in input().split()]   # создаем список из элементов строки
+    my_list.append(elem)
+-------------
+for i in range(len(my_list)):
+    for j in range(len(my_list[i])):
+        print(my_list[i][j], end=' ')   # используем необязательный параметр end
+    print()
+---------
+my_list = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+for row in my_list:
+    for elem in row:
+        print(elem, end=' ')
+    print()
+--------------
+for i in range(len(my_list)):
+    for j in range(len(my_list[i])):
+        total += my_list[i][j]
+print(total)
+------------
+matrix = [[0]*m for _ in range(n)]    # создаем квадратную матрицу размером n × m
+------------
+ввод матрицы:
+n, m = int(input()), int(input())
+matrix = []
+for i in range(n):
+    row = []
+    for j in range(m):
+        row.append(input())
+    matrix.append(row)
+------------
+for r in range(rows):
+    for c in range(cols):
+        print(str(matrix[r][c]).ljust(6), end='')
+    print()
+---------
+def print_matrix(matrix, n, width=1):
+    for r in range(n):
+        for c in range(n):
+            print(str(matrix[r][c]).ljust(width), end=' ')
+        print()
+----------
+n = 8
+matrix = [[0]*n for _ in range(n)]    # создаем квадратную матрицу размером 8×8
+
+for i in range(n):                     # заполняем главную диагональ единицами, а побочную двойками
+    matrix[i][i] = 1
+    matrix[i][n-i-1] = 2
+
+for r in range(n):                     # выводим матрицу
+    for c in range(n):
+        print(matrix[r][c], end=' ')
+    print()
+----------------
+Для считывания матрицы из n строк, заполненной числами, удобно использовать следующий код:
+n = int(input())
+matrix = []
+for i in range(n):
+    temp = [int(num) for num in input().split()]
+    matrix.append(temp)
+---------
+Используйте функцию print_matrix() для вывода квадратной матрицы размерности n:
+def print_matrix(matrix, n, width=1):
+    for r in range(n):
+        for c in range(n):
+            print(str(matrix[r][c]).ljust(width), end=' ')
+        print()
+-----------
+x, y = list(input())
+x, y = 'abcdefgh'.index(x), 8 - int(y)
+-------------быстрый ввод матрицы-----------
+n, m = [int(i) for i in input().split()]
+matrixA = [[int(i) for i in input().split()] for _ in range(n)]
+----------------
+sorted_tuple = tuple(sorted(not_sorted_tuple))
+---------------
+students = [tuple(input().split()) for _ in range(n)]
+------------
+МНОЖЕСТВА
+myset2 = set([1, 2, 2, 3, 3])		# {1, 2, 3}
+sorted_numbers = sorted(myset2)     # функция sorted() возвращает отсортированный список
+print(*sorted_numbers, sep='\n')
+len()
+sum(), min(), max()
+Метод добавления элемента add()
+Методы удаления элементов remove(), discard(), pop()
+Метод удаления всех элементов clear()
+Методы union(), intersection(), difference(), symmetric_difference()
+Методы update(), intersection_update(), difference_update(), symmetric_difference_update()
+Операторы &, |, -, ^
+Методы issuperset(), issubset(), isdisjoint()
+Сравнение множеств (<, >, <=, >=)
+Оператор принадлежности in     #     if 2 in numbers:      if 0 not in numbers:
+Для сравнения множеств используются операторы == и !=.
+Генератор	digits = {int(c) for c in input()}
+digits = {int(d) for d in 'abcd12ef78ghj90' if d.isdigit()}
+------------
+myset1 = frozenset({1, 2, 3})    # замороженное множество на основе множества
+------------
+sentence = 'The cat in the hat had two sidekicks, thing one and thing two.'
+words = sentence.lower().replace('.', '').replace(',', '').split()
+vowels = ['a', 'e', 'i', 'o', 'u']
+consonants = {frozenset({letter for letter in word if letter not in vowels}) for word in words}
+print(*consonants, sep='\n')
+----------------
+Словари
+languages = {'Python': 'Гвидо ван Россум', 'C#': 'Андерс Хейлсберг'}
+info = dict(name = 'Timur', age = 28, job = 'Teacher')
+
+info_list = [('name', 'Timur'), ('age', 28), ('job', 'Teacher')]  # список кортежей
+info_dict = dict(info_list)  # создаем словарь на основе списка кортежей
+
+fromkeys()		# dict1 = dict.fromkeys(['name', 'age', 'job'], 'Missed information')
+Встроенные функции
+len()
+sum()	принимает в качестве аргумента словарь с числовыми ключами и вычисляет сумму его ключей.
+min() и max() 	принимают в качестве аргумента словарь и находят минимальный и максимальный ключ соответственно, при этом ключ может принадлежать к любому типу данных, для которого возможны операции порядка <, <=, >, >= (числа, строки, и т.д.). 
+Оператор принадлежности in
+sorted()	функция возвращает отсортированный список ключей, а не словарь.
+Для сортировки словаря по значениям можно использовать функцию sorted() вместе с методом items():
+for key, value in sorted(capitals.items(), key = lambda x: x[1]):
+    print(value)
+Операторы == и !=		Равные словари имеют одинаковое количество элементов и содержат равные элементы (ключ: значение).
+Перебор:
+for key in capitals:
+    print(key)
+	print(capitals[key])
+
+for key, value in capitals.items():
+    print(key, '-', value)
+
+if 'Париж' in capitals.values():
+    print('В словаре есть значение Париж')
+
+
+метод items() – возвращает словарные пары ключ: значение, как соответствующие им кортежи;
+метод keys() – возвращает список ключей словаря;
+метод values() – возвращает список значений словаря.
+Метод get() возвращает значение по переданному ключу. Способен кроме ключа принимать и второй аргумент — значение, которое вернется, если заданного ключа нет. 	result.get(num, 0)
+Метод update() реализует своеобразную операцию конкатенации для словарей. Он объединяет ключи и значения одного словаря с ключами и значениями другого. При совпадении ключей в итоге сохранится значение словаря, указанного в качестве аргумента метода update().	info1.update(info2)
+операторы | и |= реализуют операцию конкатенации словарей.
+Метод pop() удаляет элемент во ключу и возвращает значение этого ключа	email = info.pop('email')          # удаляем элемент по ключу email, возвращая его значение
+surname = info.pop('surname', None) 	# Если ключа surname в словаре нет, то в переменной surname будет храниться значение None.
+Метод popitem() удаляет из словаря последний добавленный элемент и возвращает удаляемый элемент в виде кортежа (ключ, значение).
+Метод clear() удаляет все элементы из словаря.
+Метод copy() создает поверхностную копию словаря.
+Метод setdefault(key, value) позволяет получить значение из словаря по заданному ключу, автоматически добавляя элемент словаря, если он отсутствует.
+оператор del удаляет элементы словаря по определенному ключу.	del info['email']
+------------
+new_dicts = {v: k for k,v in dicts.items()}		#поменять местами ключ и значение в словаре
+for ch in word:
+    dict1[ch] = dict1.get(ch, 0) + 1		#подсчет элементов
+------------
+print(('NO','YES')[len(a) == len(set(a))])
+print(('NO','YES')[какое либо условие])
+print('NO' if a > b else 'YES')
+---------------
+num = int(input())
+description = {1: 'One', 2: 'Two', 3: 'Three'}
+print(description.get(num, 'Unknown'))
+---------------
+[print(len(set(input().lower()))) for x in range(int(input()))]
+[print(i) for i in range(10)]
+-------------------
+методы множеств
+Метод добавления элемента add()
+Методы удаления элементов remove(), discard(), pop()
+Метод удаления всех элементов clear()
+------------
+сравнение чисел float
+num = 0.1 + 0.1 + 0.1
+eps = 0.000000001           # точность сравнения
+
+if abs(num - 0.3) < eps:    # число num отличается от числа 0.3 менее чем 0.000000001
+    print('YES')
+else:
+    print('NO')
+------Decimal----
+num = Decimal(-93)
+num = Decimal('52.198')
+арифметические операции над Decimal не рекомендуется смешивать с float.
+результатом работы функции модуля math являются float числа, а не Decimal.
+методы Decimal
+num.sqrt()
+num.exp()
+num.ln()
+num.log10()
+метод as_tuple() возвращает кортеж из 3 элементов:
+    sign – знак числа (00 для положительного числа и 11 для отрицательного числа);
+    digits – цифры числа;
+    exponent – значение экспоненты (количество цифр после точки, умноженное на −1−1),
+num_tuple = num.as_tuple()
+print(num_tuple.sign)
+print(num_tuple.digits)
+print(num_tuple.exponent)
+
+Базовые параметры Decimal можно посмотреть в его контексте, выполнив функцию getcontext().
+getcontext().prec = 3      # устанавливаем точность в 3 знака.  точность вступает в силу только во время арифметических операций, а не при создании самих чисел.
+print(num.quantize(Decimal('1.000')))    #  округление до 3 цифр в дробной части  
+print(num.quantize(Decimal('1.00'), ROUND_CEILING))
+варианты второго параметра, стратегии округления:
+    ROUND_CEILING – округление в направлении бесконечности (Infinity);
+    ROUND_FLOOR – округляет в направлении минус бесконечности (- Infinity);
+    ROUND_DOWN – округление в направлении нуля;
+    ROUND_HALF_EVEN – округление до ближайшего четного числа, число 6.56.5 округлится не до 77, а до 66;
+    ROUND_HALF_DOWN – округление до ближайшего нуля;
+    ROUND_UP – округление от нуля;
+    ROUND_05UP – округление от нуля (если последняя цифра после округления до нуля была бы 0 или 5, в противном случае к нулю).
+
+from decimal import Decimal as D
+num1 = D('1.5') + D('3.2')
